@@ -22,20 +22,21 @@ CREATE TABLE book (
     CONSTRAINT bookGroup_fk FOREIGN KEY (groupName) REFERENCES writingGroup (groupName),
     CONSTRAINT bookPub_fk FOREIGN KEY (pubName) REFERENCES publisher (pubName));
 
---DROP TABLE publisher;
---DROP TABLE book;
---DROP TABLE writingGroup;
 
---/*Data for writing Group */
+-- DROP TABLE book;
+-- DROP TABLE writingGroup;
+-- DROP TABLE publisher;
+
+--/*Data for writingGroup */
 INSERT INTO writingGroup(groupName, headWriter, yearFormed, subject) values
 ('SoCal Writing Group', 'Jack Austin', 1950, 'Thriller'),
 ('NorthCal Writing Group', 'Charles Smith', 1932, 'Fantasy'),
 ('The Writers', 'Alice Wonder', 1920, 'Suspense'),
 ('Rainy Day Writers', 'Sarah Death', 1950, 'Tragedy'),
 ('English Writers', 'Jane Austin', 1800, 'Romance'),
-('The Blue Pens', 'Anthony Hopkins', 1999);
+('The Blue Pens', 'Anthony Hopkins', 1999, NULL);
 
-
+--/*Data for publisher */
 INSERT INTO publisher(pubName, pubAddress, pubPhone, pubEmail) values
 ('Penguin Publishers', '45000 W. Duke St. New York, New York', '910-102-3434', 'penguinpubs@penguinpublishers.com'),
 ('Bronx Pub', '1010 N. North St. Bronx, New York', '915-222-5656', 'bronxpub@gmail.com'),
@@ -44,6 +45,7 @@ INSERT INTO publisher(pubName, pubAddress, pubPhone, pubEmail) values
 ('Bumble Bee Press', '202 W. Hive Drive Lakewood, CA', '562-102-3092', 'bumblebeepress@yahoo.com');
 
 
+--/*Data for book */
 INSERT INTO book(groupName, pubName, bookTitle, yearPublished, numberPages) values
 ('SoCal Writing Group', 'Penguin Publishers', 'Thrills From the Dark', 2017, 299),
 ('The Blue Pens', 'Bumble Bee Press', 'Read My Words', 1999, 333),
@@ -63,7 +65,6 @@ INSERT INTO book(groupName, pubName, bookTitle, yearPublished, numberPages) valu
 ('SoCal Writing Group', 'CSULB Press', 'Under the Table', 1952, 350),
 ('Rainy Day Writers', 'Bumble Bee Press', 'Shipspeare', 1966, 598),
 ('The Writers', 'Penguin Publishers', 'Down the Hole', 1968, 255);
-
 
 
 
