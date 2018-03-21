@@ -2,7 +2,7 @@ package jdbc.project;
 import java.sql.*;
 import java.util.*;
 
-public class JDBCProject
+public class JDBCProjectOld
 {
     // JDBC driver name and database URL
     static final String JDBC_DRIVER = "org.apache.derby.jdbc.ClientDriver";
@@ -234,7 +234,7 @@ public class JDBCProject
                             {
                                 System.out.println("Insertion succeeded");
                             }
-                            break;
+
                         }
                         catch(SQLException e)
                         {
@@ -246,6 +246,7 @@ public class JDBCProject
                             System.out.println("Wrong Input Type, Please Try Again");
                             in.nextLine();
                         }
+                        break;
 
                     case 8://insert new publisher and update books from old pub to the new pub
                         try
@@ -290,18 +291,19 @@ public class JDBCProject
                             res2 = ps.executeUpdate();
                             if(res2 == 0)
                             {
-                                System.out.println("Failed to update book publisher");
+                                System.out.println("Failed to update book publisher, check that you spelled the old publisher correctly.");
                             }
                             else
                             {
                                 System.out.println("All books published by " + replace + " updated, now published by: " + nm);
                             }
-                            break;
+                            
                         }
                         catch(SQLException se)
                         {
                               System.out.println("DATABASE ERROR, TRY AGAIN");    
                         }
+                        break;
 
                     case 9://delete book
                          String del = "DELETE FROM book where bookTitle = ?";
@@ -408,10 +410,6 @@ public class JDBCProject
             System.out.println("You must enter a number 1 - 10");
         }
         return choice;   
-        
-        
 
-
-  
     }
 }
